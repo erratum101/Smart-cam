@@ -1,6 +1,6 @@
 # Smart Cam — Landing Page
 
-Маркетинговый лендинг для [Vercel](https://vercel.com). Демонстрация продукта, сравнение Free / Pro, премиум-функции (трекинг, запись, NDI).
+Маркетинговый лендинг для [Vercel](https://vercel.com). Демонстрация продукта, сравнение Free / Pro, премиум-функции (NDI, 1080p60).
 
 ## Локальный запуск
 
@@ -46,7 +46,7 @@ cd landing
 npm run sync-downloads
 ```
 
-Файлы попадут в `public/downloads/`. Кнопки «Скачать Windows / Android» отдают их через `/api/download/...` с заголовком `Content-Disposition: attachment` — браузер сразу начинает загрузку.
+Файлы попадут в `public/downloads/`. Кнопки отдают их напрямую (`/downloads/...`) с заголовком `Content-Disposition: attachment` — браузер сразу начинает загрузку. API-роут не используется: `.exe` ~300 MB не проходит через serverless.
 
 Перед деплоем на Vercel выполните `npm run sync-downloads`, чтобы бинарники попали в сборку.
 

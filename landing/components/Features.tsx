@@ -8,7 +8,7 @@ export function Features() {
         <SectionHeader
           label="Возможности"
           title="Всё для стрима и звонков"
-          description="Бесплатная версия закрывает базовые сценарии. Pro добавляет трекинг, запись и студийный вывод."
+          description="Бесплатная версия закрывает базовые сценарии. Pro добавляет NDI, 1080p60 и приоритетную поддержку."
         />
 
         <div className="grid gap-6 lg:grid-cols-2">

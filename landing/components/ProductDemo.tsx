@@ -23,7 +23,7 @@ export function ProductDemo() {
         <SectionHeader
           label="Демонстрация"
           title="Как это работает"
-          description="Телефон снимает, ПК принимает и отдаёт в Zoom, OBS или Discord. Pro добавляет трекинг, запись и NDI."
+          description="Телефон снимает, ПК принимает и отдаёт в Zoom, OBS или Discord. Pro добавляет NDI и 1080p60."
         />
 
         <div className="mb-8 flex flex-wrap justify-center gap-2">
@@ -56,11 +56,13 @@ export function ProductDemo() {
               <ConnectionFlow mode={mode} />
             </div>
 
-            <div className="mx-auto w-full max-w-lg justify-self-center animate-float-delayed sm:max-w-xl lg:mx-0 lg:max-w-none lg:w-[115%] lg:justify-self-start xl:w-[125%]">
-              <DesktopScreenshot
-                variant={mode}
-                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 640px, 780px"
-              />
+            <div className="mx-auto w-full max-w-lg justify-self-center sm:max-w-xl lg:mx-0 lg:max-w-none lg:w-[115%] lg:justify-self-start xl:w-[125%]">
+              <div className="animate-float-delayed">
+                <DesktopScreenshot
+                  variant={mode}
+                  sizes="(max-width: 768px) 90vw, (max-width: 1200px) 640px, 780px"
+                />
+              </div>
               <p className="mt-3 text-center text-sm font-medium text-white/60 lg:text-left">
                 Компьютер ·{" "}
                 {mode === "usb" ? "по кабелю" : mode === "wifi" ? "Wi‑Fi" : "Pro"}
@@ -91,10 +93,10 @@ export function ProductDemo() {
 
 function ConnectionFlow({ mode }: { mode: DemoMode }) {
   const label =
-    mode === "usb" ? "adb reverse" : mode === "wifi" ? "WebRTC" : "WebRTC + CV";
+    mode === "usb" ? "adb reverse" : mode === "wifi" ? "WebRTC" : "NDI";
 
   return (
-    <>
+    <div className="flex flex-col items-center gap-1.5">
       <div className="flex items-center gap-2">
         <span className="h-2.5 w-2.5 rounded-full bg-white animate-pulse" />
         <span className="h-px w-12 bg-gradient-to-r from-white/60 to-transparent" />
@@ -105,8 +107,11 @@ function ConnectionFlow({ mode }: { mode: DemoMode }) {
         <span className="h-2.5 w-2.5 rounded-full bg-white animate-pulse" />
       </div>
       {mode === "wifi" && (
-        <span className="text-xs text-white/60">~30 ms задержка</span>
+        <p className="text-center text-xs leading-tight text-white/60">
+          <span className="block">~30 ms</span>
+          <span className="block">задержка</span>
+        </p>
       )}
-    </>
+    </div>
   );
 }

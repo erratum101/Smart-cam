@@ -2,13 +2,8 @@ export type DownloadTier = "free" | "pro";
 export type DownloadPlatform = "windows" | "android";
 
 const DEFAULT_PATHS: Record<DownloadPlatform, string> = {
-  windows: "/api/download/windows",
-  android: "/api/download/android",
-};
-
-export const DOWNLOAD_FILENAMES: Record<DownloadPlatform, string> = {
-  windows: "Smart-Cam-App.exe",
-  android: "Smart-Cam-App.apk",
+  windows: "/downloads/smart-cam-windows.exe",
+  android: "/downloads/smart-cam-android.apk",
 };
 
 function resolveUrl(tier: DownloadTier, platform: DownloadPlatform): string {

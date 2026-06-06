@@ -2,7 +2,6 @@
 
 import { trackEvent } from "@/lib/analytics";
 import {
-  DOWNLOAD_FILENAMES,
   DOWNLOAD_URLS,
   PLATFORM_LABELS,
   type DownloadPlatform,
@@ -32,7 +31,6 @@ export function DownloadButtons({
         <a
           key={platform}
           href={DOWNLOAD_URLS[tier][platform]}
-          download={DOWNLOAD_FILENAMES[platform]}
           onClick={() => {
             trackEvent(isPro ? "cta_download_pro" : "cta_download_free", {
               platform,

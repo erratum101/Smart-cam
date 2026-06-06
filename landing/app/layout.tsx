@@ -16,11 +16,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Smart Cam — веб-камера из смартфона",
   description:
-    "Превратите телефон в профессиональную веб-камеру для Zoom и OBS. Wi‑Fi, USB, виртуальная камера. Pro: трекинг лица и тела, запись видео, NDI.",
+    "Превратите телефон в профессиональную веб-камеру для Zoom и OBS. Wi‑Fi, USB, виртуальная камера. Pro: NDI, 1080p60, без водяного знака.",
   openGraph: {
     title: "Smart Cam — веб-камера из смартфона",
     description:
-      "Телефон → ПК → Zoom / OBS. Бесплатно. Pro с трекингом и записью.",
+      "Телефон → ПК → Zoom / OBS. Бесплатно. Pro с NDI и 1080p60.",
     type: "website",
   },
   icons: {

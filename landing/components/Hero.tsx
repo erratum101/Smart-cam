@@ -30,22 +30,11 @@ export function Hero() {
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/80 lg:mx-0">
               Smart Cam передаёт видео на компьютер как виртуальную камеру.
-              Подключение по Wi‑Fi или USB за секунды. Pro — трекинг, запись и
-              NDI.
+              Подключение по Wi‑Fi или USB за секунды. Pro — NDI, 1080p60 и
+              приоритетная поддержка.
             </p>
             <div className="mx-auto mt-9 max-w-md space-y-4 lg:mx-0">
-              <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/55">
-                  Бесплатно
-                </p>
-                <DownloadButtons tier="free" variant="hero-free" />
-              </div>
-              <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/55">
-                  Pro · 300 ₽
-                </p>
-                <DownloadButtons tier="pro" variant="hero-pro" />
-              </div>
+              <DownloadButtons tier="free" variant="hero-free" />
               <a
                 href="#demo"
                 onClick={() => trackEvent("section_demo")}

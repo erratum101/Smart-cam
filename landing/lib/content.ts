@@ -11,24 +11,6 @@ export const FREE_FEATURES = [
 
 export const PRO_FEATURES = [
   {
-    title: "Трекинг лица",
-    description:
-      "MediaPipe автоматически держит лицо в центре кадра — идеально для звонков и стримов без оператора.",
-    badge: "Pro",
-  },
-  {
-    title: "Трекинг тела",
-    description:
-      "Отслеживание позы для фитнеса, презентаций и динамичных трансляций. Плечи и центр тела в фокусе.",
-    badge: "Pro",
-  },
-  {
-    title: "Запись видео",
-    description:
-      "Одна кнопка — запись сессии в MP4/MKV с микрофоном (FFmpeg, H.264). Сохранение в выбранную папку.",
-    badge: "Pro",
-  },
-  {
     title: "NDI-выход",
     description:
       "Прямой NDI-поток для vMix, Wirecast и профессиональных студий без лишних конвертеров.",
@@ -48,10 +30,6 @@ export const COMPARISON_ROWS = [
   { feature: "USB по кабелю", free: true, pro: true },
   { feature: "QR + автопоиск ПК", free: true, pro: true },
   { feature: "Качество потока", free: "720p30", pro: "1080p60" },
-  { feature: "Трекинг лица", free: false, pro: true },
-  { feature: "Трекинг тела / позы", free: false, pro: true },
-  { feature: "Оверлей трекинга", free: false, pro: true },
-  { feature: "Запись видео + микрофон", free: false, pro: true },
   { feature: "NDI-выход", free: false, pro: true },
   { feature: "Водяной знак", free: "Да", pro: "Нет" },
   { feature: "Поддержка", free: "Сообщество", pro: "Приоритет" },
@@ -77,14 +55,13 @@ export const PLANS = [
     name: "Pro",
     price: "300 ₽",
     period: "один раз",
-    description: "Трекинг, запись и профессиональный вывод — разовая покупка, без подписки.",
+    description: "NDI, 1080p60 и приоритетная поддержка — разовая покупка, без подписки.",
     highlighted: true,
     features: [
       "Всё из Free",
-      "Трекинг лица и тела",
-      "Запись MP4/MKV + мик",
       "NDI + 1080p60",
       "Без водяного знака",
+      "Приоритетная поддержка",
     ],
   },
 ] as const;
