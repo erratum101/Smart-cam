@@ -1,6 +1,7 @@
 import { Logo } from "./Logo";
+import { SiteQrCode } from "./SiteQrCode";
 
-export function Footer() {
+export async function Footer() {
   return (
     <footer className="border-t border-white/20 py-14">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -20,6 +21,11 @@ export function Footer() {
               Контакты
             </a>
           </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center gap-3 border-t border-white/10 pt-10">
+          <p className="text-sm font-medium text-white/70">Открыть сайт на телефоне</p>
+          <SiteQrCode />
         </div>
       </div>
     </footer>
