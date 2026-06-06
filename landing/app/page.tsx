@@ -1,3 +1,4 @@
+import { Background } from "@/components/Background";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { ProductDemo } from "@/components/ProductDemo";
@@ -8,14 +9,17 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main>
-      <Navbar />
-      <Hero />
-      <ProductDemo />
-      <Features />
-      <Comparison />
-      <Pricing />
-      <Footer />
-    </main>
+    <>
+      <Background />
+      <main className="relative">
+        <Navbar />
+        <Hero />
+        <ProductDemo />
+        <Features />
+        <Comparison />
+        <Pricing />
+        <Footer />
+      </main>
+    </>
   );
 }

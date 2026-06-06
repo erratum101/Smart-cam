@@ -2,51 +2,68 @@
 
 import { PLANS } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
+import { SectionHeader } from "./SectionHeader";
 
 export function Pricing() {
   return (
-    <section id="pricing" className="border-t border-white/5 py-20 sm:py-28">
+    <section id="pricing" className="py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mb-12 text-center">
-          <h2 className="font-display text-3xl font-bold sm:text-4xl">
-            Тарифы
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-white/55">
-            Начните бесплатно. Перейдите на Pro, когда понадобятся трекинг,
-            запись и NDI.
-          </p>
-        </div>
+        <SectionHeader
+          label="Тарифы"
+          title="Начните бесплатно"
+          description="Перейдите на Pro за 300 ₽ — разовая покупка, без подписки."
+        />
 
         <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
           {PLANS.map((plan) => (
             <article
               key={plan.id}
-              className={`relative rounded-2xl p-8 ${
+              className={`relative flex flex-col rounded-3xl p-8 ${
                 plan.highlighted
-                  ? "border border-brand/50 bg-brand/10 brand-glow"
-                  : "glass"
+                  ? "bg-white text-brand shadow-[0_16px_48px_rgba(0,0,0,0.2)] ring-4 ring-white/40"
+                  : "glass-strong"
               }`}
             >
               {plan.highlighted && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand px-4 py-1 text-xs font-semibold text-white">
+                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-brand px-5 py-1 text-xs font-bold text-white shadow-lg">
                   Рекомендуем
                 </span>
               )}
-              <h3 className="text-lg font-semibold">{plan.name}</h3>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="font-display text-4xl font-bold">
-                  {plan.price}
+              <h3 className={`text-xl font-bold ${plan.highlighted ? "text-brand" : ""}`}>
+                {plan.name}
+              </h3>
+              <div className="mt-5 flex items-baseline gap-1">
+                <span className="font-display text-5xl font-bold">{plan.price}</span>
+                <span
+                  className={`text-sm ${plan.highlighted ? "text-brand/60" : "text-white/50"}`}
+                >
+                  / {plan.period}
                 </span>
-                <span className="text-sm text-white/40">/ {plan.period}</span>
               </div>
-              <p className="mt-3 text-sm text-white/55">{plan.description}</p>
-              <ul className="mt-6 space-y-2.5">
+              <p
+                className={`mt-4 text-sm leading-relaxed ${
+                  plan.highlighted ? "text-brand/70" : "text-white/70"
+                }`}
+              >
+                {plan.description}
+              </p>
+              <ul className="mt-6 flex-1 space-y-3">
                 {plan.features.map((f) => (
                   <li
                     key={f}
-                    className="flex items-center gap-2 text-sm text-white/70"
+                    className={`flex items-center gap-2.5 text-sm ${
+                      plan.highlighted ? "text-brand/80" : "text-white/80"
+                    }`}
                   >
-                    <span className="text-brand">✓</span>
+                    <span
+                      className={`flex h-5 w-5 items-center justify-center rounded-full text-xs font-bold ${
+                        plan.highlighted
+                          ? "bg-brand/10 text-brand"
+                          : "bg-white/20 text-white"
+                      }`}
+                    >
+                      ✓
+                    </span>
                     {f}
                   </li>
                 ))}
@@ -58,10 +75,10 @@ export function Pricing() {
                   trackEvent(plan.ctaEvent);
                   trackEvent("section_pricing", { plan: plan.id });
                 }}
-                className={`mt-8 block w-full rounded-full py-3 text-center text-sm font-semibold transition ${
+                className={`mt-8 block w-full rounded-full py-3.5 text-center text-sm font-bold transition active:scale-[0.98] ${
                   plan.highlighted
-                    ? "bg-brand text-white hover:bg-brand-dark"
-                    : "border border-white/15 text-white hover:bg-white/5"
+                    ? "bg-brand text-white shadow-lg hover:bg-brand-mid"
+                    : "btn-secondary !w-full"
                 }`}
               >
                 {plan.cta}
@@ -70,9 +87,8 @@ export function Pricing() {
           ))}
         </div>
 
-        <p className="mx-auto mt-10 max-w-lg text-center text-xs text-white/35">
-          Цены ориентировочные. Ссылки на скачивание и оплату подключите перед
-          публикацией. Годовая подписка Pro — скидка 20%.
+        <p className="mx-auto mt-10 max-w-md text-center text-xs text-white/50">
+          Разовая покупка Pro — 300 ₽, без автопродления.
         </p>
       </div>
     </section>

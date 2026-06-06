@@ -1,50 +1,76 @@
 "use client";
 
+import { DesktopScreenshot } from "./DesktopScreenshot";
 import { trackEvent } from "@/lib/analytics";
+
+const STATS = [
+  { value: "720p30", label: "WebRTC по Wi‑Fi" },
+  { value: "<30 ms", label: "Задержка" },
+  { value: "0 ₽", label: "Базовая версия" },
+];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(0,46,232,0.35),transparent)]" />
-      <div className="pointer-events-none absolute inset-0 bg-grid-pattern bg-[length:48px_48px] opacity-40" />
-
+    <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-4 py-1.5 text-xs font-medium text-brand-glow">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
-            Телефон → ПК → Zoom / OBS
-          </p>
-          <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-6xl">
-            <span className="text-gradient">Профессиональная</span>
-            <br />
-            <span className="text-white">веб-камера из смартфона</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/60">
-            Smart Cam передаёт видео с телефона на компьютер как виртуальную
-            камеру. Wi‑Fi без задержек или USB-кабель. В Pro — трекинг лица и
-            тела, запись сессий и NDI.
-          </p>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="#pricing"
-              onClick={() => trackEvent("cta_download_free")}
-              className="w-full rounded-full bg-brand px-8 py-3.5 text-center text-sm font-semibold text-white brand-glow transition hover:bg-brand-dark sm:w-auto"
-            >
-              Скачать бесплатно
-            </a>
-            <a
-              href="#demo"
-              onClick={() => trackEvent("section_demo")}
-              className="w-full rounded-full border border-white/15 px-8 py-3.5 text-center text-sm font-semibold text-white/90 transition hover:border-white/30 hover:bg-white/5 sm:w-auto"
-            >
-              Смотреть демо
-            </a>
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
+          <div className="text-center lg:text-left">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-300 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
+              </span>
+              Телефон → ПК → Zoom / OBS
+            </p>
+            <h1 className="font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="text-gradient">Веб-камера</span>
+              <br />
+              из вашего смартфона
+            </h1>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/80 lg:mx-0">
+              Smart Cam передаёт видео на компьютер как виртуальную камеру.
+              Подключение по Wi‑Fi или USB за секунды. Pro — трекинг, запись и
+              NDI.
+            </p>
+            <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+              <a
+                href="#pricing"
+                onClick={() => trackEvent("cta_download_free")}
+                className="btn-primary w-full text-center sm:w-auto"
+              >
+                Скачать бесплатно
+              </a>
+              <a
+                href="#demo"
+                onClick={() => trackEvent("section_demo")}
+                className="btn-secondary w-full text-center sm:w-auto"
+              >
+                Смотреть демо
+              </a>
+            </div>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+              {STATS.map((s) => (
+                <div
+                  key={s.label}
+                  className="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-center backdrop-blur-sm"
+                >
+                  <p className="font-display text-lg font-bold">{s.value}</p>
+                  <p className="text-[11px] text-white/60">{s.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-white/40">
-            <span>Windows & macOS</span>
-            <span>Android & iOS</span>
-            <span>WebRTC 720p30</span>
-            <span>Без облака</span>
+
+          {/* Hero visual — реальный скриншот приложения */}
+          <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
+            <div className="animate-float">
+              <DesktopScreenshot priority />
+            </div>
+            <div className="absolute -bottom-6 -left-4 hidden rounded-2xl border border-white/30 bg-white px-4 py-3 shadow-xl sm:block animate-float-delayed">
+              <p className="text-xs font-medium text-brand">Pro</p>
+              <p className="text-lg font-bold text-brand">300 ₽</p>
+              <p className="text-[10px] text-brand/60">один раз</p>
+            </div>
           </div>
         </div>
       </div>

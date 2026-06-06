@@ -14,25 +14,19 @@ export const PRO_FEATURES = [
     title: "Трекинг лица",
     description:
       "MediaPipe автоматически держит лицо в центре кадра — идеально для звонков и стримов без оператора.",
-    badge: "SmartCam Stand",
+    badge: "Pro",
   },
   {
     title: "Трекинг тела",
     description:
       "Отслеживание позы для фитнеса, презентаций и динамичных трансляций. Плечи и центр тела в фокусе.",
-    badge: "SmartCam Stand",
+    badge: "Pro",
   },
   {
     title: "Запись видео",
     description:
       "Одна кнопка — запись сессии в MP4/MKV с микрофоном (FFmpeg, H.264). Сохранение в выбранную папку.",
     badge: "Pro",
-  },
-  {
-    title: "Управление стендом",
-    description:
-      "Команды на 2-осевой моторизованный стенд SmartCam Stand: панорама и наклон по трекингу.",
-    badge: "Hardware",
   },
   {
     title: "NDI-выход",
@@ -58,7 +52,6 @@ export const COMPARISON_ROWS = [
   { feature: "Трекинг тела / позы", free: false, pro: true },
   { feature: "Оверлей трекинга", free: false, pro: true },
   { feature: "Запись видео + микрофон", free: false, pro: true },
-  { feature: "Управление SmartCam Stand", free: false, pro: true },
   { feature: "NDI-выход", free: false, pro: true },
   { feature: "Водяной знак", free: "Да", pro: "Нет" },
   { feature: "Поддержка", free: "Сообщество", pro: "Приоритет" },
@@ -84,10 +77,10 @@ export const PLANS = [
   {
     id: "pro",
     name: "Pro",
-    price: "990 ₽",
-    period: "в месяц",
-    description: "Трекинг, запись и профессиональный вывод для создателей контента.",
-    cta: "Попробовать Pro",
+    price: "300 ₽",
+    period: "один раз",
+    description: "Трекинг, запись и профессиональный вывод — разовая покупка, без подписки.",
+    cta: "Купить Pro",
     ctaEvent: "cta_download_pro" as const,
     highlighted: true,
     features: [
@@ -95,7 +88,7 @@ export const PLANS = [
       "Трекинг лица и тела",
       "Запись MP4/MKV + мик",
       "NDI + 1080p60",
-      "SmartCam Stand",
+      "Без водяного знака",
     ],
   },
 ] as const;

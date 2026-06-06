@@ -4,8 +4,8 @@
 
 :root {
   --brand: #002ee8;
-  --brand-dark: #0025b3;
-  --surface: #222222;
+  --brand-dark: #001a99;
+  --brand-light: #4d7dff;
 }
 
 html {
@@ -13,22 +13,45 @@ html {
 }
 
 body {
-  background: #0a0a0c;
-  color: #f5f5f7;
+  min-height: 100vh;
+  background: #002ee8;
+  color: #ffffff;
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent;
+  .page-bg {
+    background:
+      radial-gradient(ellipse 90% 60% at 10% 0%, rgba(255, 255, 255, 0.14), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 90% 10%, rgba(77, 125, 255, 0.45), transparent 50%),
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0, 26, 153, 0.9), transparent 60%),
+      linear-gradient(165deg, #001a99 0%, #002ee8 42%, #1a52ff 100%);
   }
 
-  .brand-glow {
-    box-shadow:
-      0 0 60px rgba(0, 46, 232, 0.35),
-      0 0 120px rgba(0, 46, 232, 0.15);
+  .text-gradient {
+    @apply bg-gradient-to-br from-white via-white to-white/75 bg-clip-text text-transparent;
   }
 
   .glass {
-    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+    @apply border border-white/25 bg-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-2xl;
+  }
+
+  .glass-strong {
+    @apply border border-white/35 bg-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-2xl;
+  }
+
+  .glass-card {
+    @apply rounded-3xl border border-white/20 bg-white/[0.12] shadow-[0_4px_24px_rgba(0,0,0,0.1)] backdrop-blur-xl;
+  }
+
+  .btn-primary {
+    @apply rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-brand shadow-[0_4px_24px_rgba(0,0,0,0.2)] transition hover:bg-white/95 hover:shadow-[0_6px_32px_rgba(0,0,0,0.25)] active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply rounded-full border border-white/40 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/60 hover:bg-white/20 active:scale-[0.98];
+  }
+
+  .section-label {
+    @apply mb-3 inline-block rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white/80;
   }
 }
