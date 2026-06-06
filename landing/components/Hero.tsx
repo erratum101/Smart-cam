@@ -11,7 +11,7 @@ const STATS = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+    <section className="relative overflow-x-clip pt-32 pb-20 sm:pt-40 sm:pb-28">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
           <div className="text-center lg:text-left">
@@ -61,16 +61,24 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-2xl lg:max-w-none">
-            <div className="flex items-end justify-center gap-2 sm:gap-4">
-              <div className="w-[34%] shrink-0 pb-4 sm:w-[32%] sm:pb-8 animate-float">
-                <DeviceMockup kind="phone" priority />
+          <div className="relative mx-auto w-full overflow-visible lg:max-w-none">
+            <div className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-[420px]">
+              {/* Телефон справа, за ноутбуком */}
+              <div className="absolute right-[-2%] top-[18%] z-0 w-[30%] max-w-[200px] sm:right-0 sm:top-[12%] sm:w-[28%] sm:max-w-[220px] lg:right-[-4%] lg:top-[8%] lg:max-w-[240px] animate-float">
+                <DeviceMockup kind="phone" priority shadow={false} />
               </div>
-              <div className="min-w-0 flex-1 animate-float-delayed">
-                <DeviceMockup kind="desktop-wifi" priority />
+
+              {/* Десктоп крупнее, поверх */}
+              <div className="relative z-10 w-[108%] max-w-none -translate-x-[2%] sm:w-[112%] lg:w-[118%] lg:-translate-x-[4%] animate-float-delayed">
+                <DeviceMockup
+                  kind="desktop-wifi"
+                  priority
+                  className="!max-w-none"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 720px, 820px"
+                />
               </div>
             </div>
-            <div className="absolute -bottom-2 left-0 hidden rounded-2xl bg-white px-4 py-3 shadow-xl sm:block animate-float-delayed">
+            <div className="absolute -bottom-2 left-0 z-20 hidden rounded-2xl bg-white px-4 py-3 shadow-xl sm:block animate-float-delayed">
               <p className="text-xs font-medium text-brand">Pro</p>
               <p className="text-lg font-bold text-brand">300 ₽</p>
               <p className="text-[10px] text-brand/60">один раз</p>
