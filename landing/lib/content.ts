@@ -64,8 +64,6 @@ export const PLANS = [
     price: "0 ₽",
     period: "навсегда",
     description: "Всё необходимое, чтобы превратить телефон в веб-камеру.",
-    cta: "Скачать бесплатно",
-    ctaEvent: "cta_download_free" as const,
     highlighted: false,
     features: [
       "Виртуальная камера",
@@ -80,8 +78,6 @@ export const PLANS = [
     price: "300 ₽",
     period: "один раз",
     description: "Трекинг, запись и профессиональный вывод — разовая покупка, без подписки.",
-    cta: "Купить Pro",
-    ctaEvent: "cta_download_pro" as const,
     highlighted: true,
     features: [
       "Всё из Free",

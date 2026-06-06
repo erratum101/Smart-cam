@@ -1,6 +1,7 @@
 "use client";
 
 import { DeviceMockup } from "./DeviceMockup";
+import { DownloadButtons } from "./DownloadButtons";
 import { trackEvent } from "@/lib/analytics";
 
 const STATS = [
@@ -32,18 +33,23 @@ export function Hero() {
               Подключение по Wi‑Fi или USB за секунды. Pro — трекинг, запись и
               NDI.
             </p>
-            <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
-              <a
-                href="#pricing"
-                onClick={() => trackEvent("cta_download_free")}
-                className="btn-primary w-full text-center sm:w-auto"
-              >
-                Скачать бесплатно
-              </a>
+            <div className="mx-auto mt-9 max-w-md space-y-4 lg:mx-0">
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/55">
+                  Бесплатно
+                </p>
+                <DownloadButtons tier="free" variant="hero-free" />
+              </div>
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-white/55">
+                  Pro · 300 ₽
+                </p>
+                <DownloadButtons tier="pro" variant="hero-pro" />
+              </div>
               <a
                 href="#demo"
                 onClick={() => trackEvent("section_demo")}
-                className="btn-secondary w-full text-center sm:w-auto"
+                className="btn-secondary block w-full text-center"
               >
                 Смотреть демо
               </a>

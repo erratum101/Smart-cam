@@ -2,6 +2,7 @@
 
 import { PLANS } from "@/lib/content";
 import { trackEvent } from "@/lib/analytics";
+import { DownloadButtons } from "./DownloadButtons";
 import { SectionHeader } from "./SectionHeader";
 
 export function Pricing() {
@@ -68,21 +69,15 @@ export function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  trackEvent(plan.ctaEvent);
-                  trackEvent("section_pricing", { plan: plan.id });
-                }}
-                className={`mt-8 block w-full rounded-full py-3.5 text-center text-sm font-bold transition active:scale-[0.98] ${
-                  plan.highlighted
-                    ? "bg-brand text-white shadow-lg hover:bg-brand-mid"
-                    : "btn-secondary !w-full"
-                }`}
-              >
-                {plan.cta}
-              </a>
+              <div className="mt-8">
+                <DownloadButtons
+                  tier={plan.id === "pro" ? "pro" : "free"}
+                  variant={plan.highlighted ? "card-pro" : "card-free"}
+                  onExtraTrack={() =>
+                    trackEvent("section_pricing", { plan: plan.id })
+                  }
+                />
+              </div>
             </article>
           ))}
         </div>
