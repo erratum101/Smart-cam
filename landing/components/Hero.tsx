@@ -69,12 +69,7 @@ export function Hero() {
 
           <div className="relative mx-auto w-full overflow-visible lg:max-w-none">
             <div className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-[420px]">
-              {/* Телефон справа, за ноутбуком */}
-              <div className="absolute right-[-2%] top-[18%] z-0 w-[30%] max-w-[200px] sm:right-0 sm:top-[12%] sm:w-[28%] sm:max-w-[220px] lg:right-[-4%] lg:top-[8%] lg:max-w-[240px] animate-float">
-                <DeviceMockup kind="phone" priority shadow={false} />
-              </div>
-
-              {/* Десктоп крупнее, поверх */}
+              {/* Десктоп */}
               <div className="relative z-10 w-[108%] max-w-none -translate-x-[2%] sm:w-[112%] lg:w-[118%] lg:-translate-x-[4%] animate-float-delayed">
                 <DeviceMockup
                   kind="desktop-wifi"
@@ -83,8 +78,13 @@ export function Hero() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 720px, 820px"
                 />
               </div>
+
+              {/* iPhone справа, на переднем плане */}
+              <div className="absolute right-[-10%] top-[6%] z-20 w-[34%] max-w-[210px] sm:right-[-6%] sm:top-[4%] sm:max-w-[230px] lg:right-[-12%] lg:max-w-[250px] animate-float">
+                <DeviceMockup kind="phone" priority />
+              </div>
             </div>
-            <div className="absolute -bottom-2 left-0 z-20 hidden rounded-2xl bg-white px-4 py-3 shadow-xl sm:block animate-float-delayed">
+            <div className="absolute -bottom-2 left-0 z-30 hidden rounded-2xl bg-white px-4 py-3 shadow-xl sm:block animate-float-delayed">
               <p className="text-xs font-medium text-brand">Pro</p>
               <p className="text-lg font-bold text-brand">300 ₽</p>
               <p className="text-[10px] text-brand/60">один раз</p>

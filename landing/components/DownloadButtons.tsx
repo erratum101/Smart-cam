@@ -7,6 +7,7 @@ import {
   type DownloadPlatform,
   type DownloadTier,
 } from "@/lib/downloads";
+import { PlatformIcon } from "./PlatformIcons";
 
 type Variant = "hero-free" | "hero-pro" | "card-free" | "card-pro";
 
@@ -38,10 +39,23 @@ export function DownloadButtons({
           }}
           className={buttonClass(variant)}
         >
-          <span className="block text-[10px] font-medium uppercase tracking-wide opacity-75">
-            {prefix}
+          <PlatformIcon
+            platform={platform}
+            className="h-5 w-5 shrink-0 sm:h-6 sm:w-6"
+          />
+          <span className="min-w-0 text-left leading-tight">
+            <span className="block text-[9px] font-medium uppercase tracking-wide opacity-75 sm:text-[10px]">
+              {prefix}
+            </span>
+            <span className="block text-xs font-bold sm:text-sm">
+              {PLATFORM_LABELS[platform]}
+            </span>
+            {platform === "android" ? (
+              <span className="block text-[9px] font-medium opacity-60 sm:text-[10px]">
+                APK
+              </span>
+            ) : null}
           </span>
-          <span className="block text-sm font-bold">{PLATFORM_LABELS[platform]}</span>
         </a>
       ))}
     </div>
@@ -50,7 +64,7 @@ export function DownloadButtons({
 
 function buttonClass(variant: Variant): string {
   const base =
-    "rounded-2xl px-3 py-2.5 text-center transition active:scale-[0.98]";
+    "flex items-center gap-2 rounded-2xl px-3 py-2.5 text-left transition active:scale-[0.98] sm:gap-2.5 sm:px-4";
 
   switch (variant) {
     case "hero-free":
