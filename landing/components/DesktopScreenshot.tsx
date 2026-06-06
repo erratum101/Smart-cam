@@ -1,21 +1,6 @@
-import Image from "next/image";
+import { DeviceMockup } from "./DeviceMockup";
 
 export type DesktopScreenshotVariant = "wifi" | "usb" | "pro";
-
-const SCREENSHOTS: Record<DesktopScreenshotVariant, { src: string; alt: string }> = {
-  wifi: {
-    src: "/screenshots/desktop-wifi.png",
-    alt: "Smart Cam App — режим Wi‑Fi, QR-код для подключения",
-  },
-  usb: {
-    src: "/screenshots/desktop-cable.png",
-    alt: "Smart Cam App — режим по кабелю, ожидание подключения",
-  },
-  pro: {
-    src: "/screenshots/desktop-wifi.png",
-    alt: "Smart Cam App — режим Pro",
-  },
-};
 
 export function DesktopScreenshot({
   variant = "wifi",
@@ -26,17 +11,15 @@ export function DesktopScreenshot({
   className?: string;
   priority?: boolean;
 }) {
-  const { src, alt } = SCREENSHOTS[variant];
+  const kind =
+    variant === "usb" ? "desktop-cable" : "desktop-wifi";
 
   return (
-    <Image
-      src={src}
-      alt={alt}
-      width={1920}
-      height={1080}
+    <DeviceMockup
+      kind={kind}
+      className={className}
       priority={priority}
-      className={`h-auto w-full ${className}`}
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
+      shadow
     />
   );
 }

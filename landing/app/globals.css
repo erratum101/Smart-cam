@@ -32,15 +32,15 @@ body {
   }
 
   .glass {
-    @apply border border-white/25 bg-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-2xl;
+    @apply bg-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-2xl;
   }
 
   .glass-strong {
-    @apply border border-white/35 bg-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-2xl;
+    @apply bg-white/15 shadow-[0_12px_40px_rgba(0,0,0,0.18)] backdrop-blur-2xl;
   }
 
   .glass-card {
-    @apply rounded-3xl border border-white/20 bg-white/[0.12] shadow-[0_4px_24px_rgba(0,0,0,0.1)] backdrop-blur-xl;
+    @apply rounded-3xl bg-white/[0.12] shadow-[0_4px_24px_rgba(0,0,0,0.1)] backdrop-blur-xl;
   }
 
   .btn-primary {
@@ -48,10 +48,15 @@ body {
   }
 
   .btn-secondary {
-    @apply rounded-full border border-white/40 bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-white/60 hover:bg-white/20 active:scale-[0.98];
+    @apply rounded-full bg-white/10 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 active:scale-[0.98];
   }
 
   .section-label {
-    @apply mb-3 inline-block rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white/80;
+    @apply mb-3 inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm;
+  }
+
+  .device-shadow {
+    filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.38))
+      drop-shadow(0 10px 20px rgba(0, 0, 0, 0.22));
   }
 }

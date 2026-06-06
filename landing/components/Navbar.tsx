@@ -14,7 +14,7 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <div className="mx-auto max-w-6xl px-4 pt-4 sm:px-6">
-        <div className="flex h-14 items-center justify-between rounded-2xl border border-white/25 bg-white/10 px-5 shadow-[0_4px_24px_rgba(0,0,0,0.1)] backdrop-blur-2xl">
+        <div className="flex h-14 items-center justify-between rounded-2xl bg-white/10 px-5 shadow-[0_4px_24px_rgba(0,0,0,0.1)] backdrop-blur-2xl">
           <a href="#" aria-label="Smart Cam — на главную">
             <Logo />
           </a>

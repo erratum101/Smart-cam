@@ -1,6 +1,6 @@
 "use client";
 
-import { DesktopScreenshot } from "./DesktopScreenshot";
+import { DeviceMockup } from "./DeviceMockup";
 import { trackEvent } from "@/lib/analytics";
 
 const STATS = [
@@ -15,7 +15,7 @@ export function Hero() {
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-10">
           <div className="text-center lg:text-left">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-300 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
@@ -52,7 +52,7 @@ export function Hero() {
               {STATS.map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-center backdrop-blur-sm"
+                  className="rounded-2xl bg-white/10 px-4 py-3 text-center backdrop-blur-sm"
                 >
                   <p className="font-display text-lg font-bold">{s.value}</p>
                   <p className="text-[11px] text-white/60">{s.label}</p>
@@ -61,12 +61,16 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Hero visual — реальный скриншот приложения */}
-          <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-            <div className="animate-float">
-              <DesktopScreenshot variant="wifi" priority />
+          <div className="relative mx-auto w-full max-w-2xl lg:max-w-none">
+            <div className="flex items-end justify-center gap-2 sm:gap-4">
+              <div className="w-[34%] shrink-0 pb-4 sm:w-[32%] sm:pb-8 animate-float">
+                <DeviceMockup kind="phone" priority />
+              </div>
+              <div className="min-w-0 flex-1 animate-float-delayed">
+                <DeviceMockup kind="desktop-wifi" priority />
+              </div>
             </div>
-            <div className="absolute -bottom-6 -left-4 hidden rounded-2xl border border-white/30 bg-white px-4 py-3 shadow-xl sm:block animate-float-delayed">
+            <div className="absolute -bottom-2 left-0 hidden rounded-2xl bg-white px-4 py-3 shadow-xl sm:block animate-float-delayed">
               <p className="text-xs font-medium text-brand">Pro</p>
               <p className="text-lg font-bold text-brand">300 ₽</p>
               <p className="text-[10px] text-brand/60">один раз</p>

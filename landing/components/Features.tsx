@@ -15,7 +15,7 @@ export function Features() {
           <div className="glass-strong rounded-3xl p-8">
             <div className="mb-6 flex items-center gap-3">
               <h3 className="font-display text-2xl font-bold">Free</h3>
-              <span className="rounded-full border border-white/30 bg-white/10 px-3 py-0.5 text-xs font-medium text-white/80">
+              <span className="rounded-full bg-white/10 px-3 py-0.5 text-xs font-medium text-white/80">
                 Бесплатно
               </span>
             </div>
@@ -29,7 +29,7 @@ export function Features() {
             </ul>
           </div>
 
-          <div className="glass-strong rounded-3xl p-8 ring-1 ring-white/30">
+          <div className="glass-strong rounded-3xl p-8">
             <div className="mb-6 flex items-center gap-3">
               <h3 className="font-display text-2xl font-bold">Pro</h3>
               <span className="rounded-full bg-white px-3 py-0.5 text-xs font-bold text-brand">
@@ -40,7 +40,7 @@ export function Features() {
               {PRO_FEATURES.map((f) => (
                 <article
                   key={f.title}
-                  className="rounded-2xl border border-white/20 bg-white/10 p-4 transition hover:bg-white/15"
+                  className="rounded-2xl bg-white/10 p-4 transition hover:bg-white/15"
                 >
                   <span className="text-[10px] font-bold uppercase tracking-wider text-white/50">
                     {f.badge}
