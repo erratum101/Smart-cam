@@ -23,7 +23,10 @@ export const metadata: Metadata = {
       "Телефон → ПК → Zoom / OBS. Бесплатно. Pro с трекингом и записью.",
     type: "website",
   },
-  icons: { icon: "/icon.svg" },
+  icons: {
+    icon: "/app-icon.png",
+    apple: "/app-icon.png",
+  },
 };
 
 export default function RootLayout({

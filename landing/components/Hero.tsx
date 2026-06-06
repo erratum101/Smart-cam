@@ -64,7 +64,7 @@ export function Hero() {
           {/* Hero visual — реальный скриншот приложения */}
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <div className="animate-float">
-              <DesktopScreenshot priority />
+              <DesktopScreenshot variant="wifi" priority />
             </div>
             <div className="absolute -bottom-6 -left-4 hidden rounded-2xl border border-white/30 bg-white px-4 py-3 shadow-xl sm:block animate-float-delayed">
               <p className="text-xs font-medium text-brand">Pro</p>

@@ -66,9 +66,9 @@ export function ProductDemo() {
             </div>
 
             <div className="mx-auto w-full max-w-md">
-              <DesktopScreenshot />
+              <DesktopScreenshot variant={mode} />
               <p className="mt-3 text-center text-sm font-medium text-white/60">
-                Компьютер
+                Компьютер · {mode === "usb" ? "по кабелю" : mode === "wifi" ? "Wi‑Fi" : "Pro"}
               </p>
             </div>
           </div>
