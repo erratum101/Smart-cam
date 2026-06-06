@@ -3,3 +3,7 @@ node_modules
 out
 .env*.local
 .vercel
+
+# Built installers (copy via npm run sync-downloads)
+public/downloads/*.exe
+public/downloads/*.apk

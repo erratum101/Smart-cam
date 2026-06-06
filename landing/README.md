@@ -35,10 +35,24 @@ npx vercel
 
 События кнопок: `cta_download_free`, `cta_download_pro`, `section_demo`, `section_pricing`, `nav_click`.
 
+## Скачивание .exe / .apk с кнопок
+
+1. Соберите десктоп: `desktop\build_windows.ps1`
+2. Соберите Android: `cd mobile && flutter build apk --release`
+3. Скопируйте артефакты на лендинг:
+
+```bash
+cd landing
+npm run sync-downloads
+```
+
+Файлы попадут в `public/downloads/`. Кнопки «Скачать Windows / Android» отдают их через `/api/download/...` с заголовком `Content-Disposition: attachment` — браузер сразу начинает загрузку.
+
+Перед деплоем на Vercel выполните `npm run sync-downloads`, чтобы бинарники попали в сборку.
+
 ## Перед публикацией
 
-1. Замените `href="#"` в кнопках «Скачать» на реальные ссылки (Microsoft Store, Google Play, Gumroad и т.д.).
-2. Обновите цену Pro в `lib/content.ts`, если нужно.
+1. Обновите цену Pro в `lib/content.ts`, если нужно.
 3. Подставьте рабочий email в `components/Footer.tsx`.
 4. При желании добавьте скриншоты в `public/` и вставьте в `ProductDemo.tsx`.
 

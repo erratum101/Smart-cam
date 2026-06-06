@@ -75,6 +75,15 @@ flutter build appbundle --release
 
 Артефакты: `build/app/outputs/flutter-apk/app-release.apk` или `build/app/outputs/bundle/release/app-release.aab`.
 
+Для кнопок скачивания на лендинге:
+
+```bash
+cd landing
+npm run sync-downloads
+```
+
+Скопирует `.exe` и `.apk` в `landing/public/downloads/`; кнопки отдают файлы через `/api/download/windows` и `/api/download/android`.
+
 Нужны настроенный Android SDK и ключ подписи для публикации в Google Play (см. [документацию Flutter](https://docs.flutter.dev/deployment/android)).
 
 ### iOS

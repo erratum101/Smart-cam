@@ -47,16 +47,21 @@ export function ProductDemo() {
         </div>
 
         <div className="glass-strong rounded-[2rem] p-6 sm:p-10">
-          <div className="grid items-end gap-8 lg:grid-cols-[auto_auto_auto] lg:justify-center lg:gap-10">
-            <PhoneFrame label="Телефон" animate />
+          <div className="grid items-center gap-8 lg:grid-cols-[auto_auto_minmax(0,1fr)] lg:items-center lg:gap-6 xl:gap-10">
+            <div className="mx-auto w-full max-w-[200px] justify-self-center sm:max-w-[220px]">
+              <PhoneFrame label="Телефон" animate />
+            </div>
 
-            <div className="hidden flex-col items-center gap-4 pb-16 lg:flex">
+            <div className="flex items-center justify-center self-center lg:flex">
               <ConnectionFlow mode={mode} />
             </div>
 
-            <div className="mx-auto w-full max-w-md lg:mx-0">
-              <DesktopScreenshot variant={mode} />
-              <p className="mt-3 text-center text-sm font-medium text-white/60">
+            <div className="mx-auto w-full max-w-lg justify-self-center animate-float-delayed sm:max-w-xl lg:mx-0 lg:max-w-none lg:w-[115%] lg:justify-self-start xl:w-[125%]">
+              <DesktopScreenshot
+                variant={mode}
+                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 640px, 780px"
+              />
+              <p className="mt-3 text-center text-sm font-medium text-white/60 lg:text-left">
                 Компьютер ·{" "}
                 {mode === "usb" ? "по кабелю" : mode === "wifi" ? "Wi‑Fi" : "Pro"}
               </p>

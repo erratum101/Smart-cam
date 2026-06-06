@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sync-downloads": "powershell -ExecutionPolicy Bypass -File ./scripts/copy-downloads.ps1"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
