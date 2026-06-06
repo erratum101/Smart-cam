@@ -1,0 +1,10 @@
+build/
+build-nuitka/
+dist/
+Smart Cam App/
+*.spec
+__pycache__/
+.venv/
+venv/
+app_icon.ico
+icon.ico
