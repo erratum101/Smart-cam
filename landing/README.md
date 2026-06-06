@@ -35,20 +35,48 @@ npx vercel
 
 События кнопок: `cta_download_free`, `cta_download_pro`, `section_demo`, `section_pricing`, `nav_click`.
 
-## Скачивание .exe / .apk с кнопок
+## Скачивание .exe / .apk
 
-1. Соберите десктоп: `desktop\build_windows.ps1`
-2. Соберите Android: `cd mobile && flutter build apk --release`
-3. Скопируйте артефакты на лендинг:
+**Локально:** файлы из `public/downloads/` (после `npm run sync-downloads`).
+
+**На Vercel:** `.exe` ~300 MB не деплоится (лимит). Файлы хранятся в **GitHub Releases**, кнопки и `/downloads/...` ведут туда.
+
+### 1. Сборка
+
+```powershell
+cd desktop
+.\build_windows.ps1
+
+cd ..\mobile
+flutter build apk --release
+```
+
+### 2. Публикация в GitHub Releases
+
+```powershell
+cd landing
+$env:GITHUB_TOKEN = "ghp_..."   # repo scope: https://github.com/settings/tokens
+npm run publish-release
+```
+
+Создаст релиз `v1.0.0` с `Smart-Cam-App.exe` и `Smart-Cam-App.apk`.
+
+### 3. Деплой лендинга
+
+Запушьте изменения или redeploy на Vercel. В production кнопки ведут на:
+
+- `https://github.com/erratum101/Smart-cam/releases/download/v1.0.0/Smart-Cam-App.exe`
+- `https://github.com/erratum101/Smart-cam/releases/download/v1.0.0/Smart-Cam-App.apk`
+
+Новая версия: измените тег в `lib/release.ts` или задайте `NEXT_PUBLIC_RELEASE_TAG` на Vercel.
+
+### Локальная разработка
 
 ```bash
 cd landing
 npm run sync-downloads
+npm run dev
 ```
-
-Файлы попадут в `public/downloads/`. Кнопки отдают их напрямую (`/downloads/...`) с заголовком `Content-Disposition: attachment` — браузер сразу начинает загрузку. API-роут не используется: `.exe` ~300 MB не проходит через serverless.
-
-Перед деплоем на Vercel выполните `npm run sync-downloads`, чтобы бинарники попали в сборку.
 
 ## Перед публикацией
 

@@ -1,10 +1,25 @@
+import {
+  PRODUCTION_DOWNLOAD_URLS,
+  RELEASE_ASSETS,
+} from "./release";
+
 export type DownloadTier = "free" | "pro";
 export type DownloadPlatform = "windows" | "android";
 
-const DEFAULT_PATHS: Record<DownloadPlatform, string> = {
+const LOCAL_PATHS: Record<DownloadPlatform, string> = {
   windows: "/downloads/smart-cam-windows.exe",
   android: "/downloads/smart-cam-android.apk",
 };
+
+function isLocalDev(): boolean {
+  return process.env.NODE_ENV === "development";
+}
+
+function defaultUrl(platform: DownloadPlatform): string {
+  return isLocalDev()
+    ? LOCAL_PATHS[platform]
+    : PRODUCTION_DOWNLOAD_URLS[platform];
+}
 
 function resolveUrl(tier: DownloadTier, platform: DownloadPlatform): string {
   const env =
@@ -17,7 +32,7 @@ function resolveUrl(tier: DownloadTier, platform: DownloadPlatform): string {
         : process.env.NEXT_PUBLIC_DOWNLOAD_PRO_ANDROID;
 
   const trimmed = env?.trim();
-  return trimmed || DEFAULT_PATHS[platform];
+  return trimmed || defaultUrl(platform);
 }
 
 export const DOWNLOAD_URLS: Record<
@@ -38,3 +53,5 @@ export const PLATFORM_LABELS: Record<DownloadPlatform, string> = {
   windows: "Windows",
   android: "Android",
 };
+
+export { RELEASE_ASSETS };

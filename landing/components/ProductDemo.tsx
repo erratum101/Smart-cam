@@ -47,23 +47,23 @@ export function ProductDemo() {
         </div>
 
         <div className="glass-strong rounded-[2rem] p-6 sm:p-10">
-          <div className="grid items-center gap-8 lg:grid-cols-[auto_auto_minmax(0,1fr)] lg:items-center lg:gap-6 xl:gap-10">
-            <div className="mx-auto w-full max-w-[200px] justify-self-center sm:max-w-[220px]">
+          <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-center lg:justify-start lg:gap-6 xl:gap-10">
+            <div className="w-full max-w-[200px] shrink-0 sm:max-w-[220px]">
               <PhoneFrame label="Телефон" animate />
             </div>
 
-            <div className="flex items-center justify-center self-center lg:flex">
+            <div className="flex shrink-0 items-center justify-center">
               <ConnectionFlow mode={mode} />
             </div>
 
-            <div className="mx-auto w-full max-w-lg justify-self-center sm:max-w-xl lg:mx-0 lg:max-w-none lg:w-[115%] lg:justify-self-start xl:w-[125%]">
+            <div className="w-full max-w-xl sm:max-w-2xl lg:max-w-[520px] lg:-translate-x-4 xl:max-w-[580px] xl:-translate-x-8">
               <div className="animate-float-delayed">
                 <DesktopScreenshot
                   variant={mode}
-                  sizes="(max-width: 768px) 90vw, (max-width: 1200px) 640px, 780px"
+                  sizes="(max-width: 768px) 90vw, (max-width: 1200px) 520px, 580px"
                 />
               </div>
-              <p className="mt-3 text-center text-sm font-medium text-white/60 lg:text-left">
+              <p className="mt-3 text-center text-sm font-medium text-white/60">
                 Компьютер ·{" "}
                 {mode === "usb" ? "по кабелю" : mode === "wifi" ? "Wi‑Fi" : "Pro"}
               </p>

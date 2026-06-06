@@ -75,14 +75,14 @@ flutter build appbundle --release
 
 Артефакты: `build/app/outputs/flutter-apk/app-release.apk` или `build/app/outputs/bundle/release/app-release.aab`.
 
-Для кнопок скачивания на лендинге:
+Для кнопок скачивания на лендинге (локально):
 
 ```bash
 cd landing
 npm run sync-downloads
 ```
 
-Скопирует `.exe` и `.apk` в `landing/public/downloads/`; кнопки отдают файлы напрямую из `/downloads/`.
+Для **Vercel** бинарники публикуются в GitHub Releases (`npm run publish-release` в `landing/`). См. [landing/README.md](../landing/README.md).
 
 Нужны настроенный Android SDK и ключ подписи для публикации в Google Play (см. [документацию Flutter](https://docs.flutter.dev/deployment/android)).
 
